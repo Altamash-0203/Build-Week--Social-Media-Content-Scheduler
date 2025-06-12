@@ -1,0 +1,54 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: rgb(252, 252, 252);
+}
+#signup-form,#signin-form{
+    width: 30%;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    padding: 100px;
+    border-radius: 10px;
+    box-shadow: 14px 14px 14px  14px rgb(136, 136, 153);
+    background-color: transparent;
+
+}
+
+#signup-form input{
+    border: none;
+    width: 90%;
+    background-color: transparent;
+    border-bottom: 2px solid  brown;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+
+#signin-form input{
+    border: none;
+    width: 90%;
+    background-color: transparent;
+    border-bottom: 2px solid  brown;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+
+#signin-btn,#signup-btn{
+   width: 150px;
+   height: 30px;
+   border-radius: 10px;
+   border: none;
+   background-color: black;
+   color: white;
+
+
+}
