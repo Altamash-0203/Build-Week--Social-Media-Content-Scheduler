@@ -1,23 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Signup-Creation Buzz</title>
-    <link rel="shortcut icon" href="/Build-Week--Social-Media-Content-Scheduler/frontend/images/signupFav.png" type="image/x-icon">
+    <link rel="shortcut icon" href="/Build-Week--Social-Media-Content-Scheduler/frontend/images/signupFav.png"
+        type="image/x-icon">
     <link rel="stylesheet" href="form.css">
 </head>
+
 <body>
-    <div id="signup-form"> 
-        <div><img src="/Build-Week--Social-Media-Content-Scheduler/frontend/images/creation_buzz_logo-1.png" height="40px"></div>
-       <input type="text" name="" id="signup-name" placeholder="Enter Your Username">
-       <input type="email" name="" id="signup-mail" placeholder="Enter Your Mail Address">
-       <input type="password" id="signup-password" placeholder="Create Password">
-       <input type="text" name="" id="check-password" placeholder="Confirm Your password">
-       <input type="text" name="" id="gender" placeholder="Enter Your Gender">
-           
-          <div style="text-align: center;"> <button id="signup-btn" > Submit</button></div>
-          <p style="text-align: center;">I have already account?<a style="text-decoration: none;" href="signin.html">Login</a></p>
-       </div>
+    <div id="signup-form">
+        <div><img src="/Build-Week--Social-Media-Content-Scheduler/frontend/images/creation_buzz_logo-1.png"
+                height="40px"></div>
+        <input type="text" name="" id="signup-name" placeholder="Enter Your Username">
+        <input type="email" name="" id="signup-mail" placeholder="Enter Your Mail Address">
+        <input type="password" id="signup-password" placeholder="Create Password">
+        <input type="text" name="" id="check-password" placeholder="Confirm Your password">
+        <input type="text" name="" id="gender" placeholder="Enter Your Gender">
+
+        <div style="text-align: center;"> <button id="signup-btn"> Submit</button></div>
+        <p style="text-align: center;">I have already account?<a style="text-decoration: none;"
+                href="signin.html">Login</a></p>
+                <i id="signup-error"></i>
+    </div>
 </body>
+
 </html>
+
+
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-analytics.js";
+    import {
+        getAuth,
+        createUserWithEmailAndPassword,
+        signInWithEmailAndPassword,
+        signOut,
+        onAuthStateChanged
+
+    } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-auth.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+        apiKey: "AIzaSyCLRuHwzVLgndB4rABibJbuIC_y5gZnRZs",
+        authDomain: "social-media-db-1bb6f.firebaseapp.com",
+        databaseURL: "https://social-media-db-1bb6f-default-rtdb.firebaseio.com",
+        projectId: "social-media-db-1bb6f",
+        storageBucket: "social-media-db-1bb6f.firebasestorage.app",
+        messagingSenderId: "797390709264",
+        appId: "1:797390709264:web:8178b280222b43443ce095",
+        measurementId: "G-7YWTEN1XF1"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+    const auth = getAuth(app)
+
+    document.getElementById('signup-btn').addEventListener("click", () => {
+        let email = document.getElementById('signup-mail').value
+        let pass = document.getElementById('signup-password').value
+        let userName = document.getElementById('signup-name').value
+        let gender=document.getElementById('gender').value
+
+        createUserWithEmailAndPassword(auth, email, pass)
+            .then((userCredentials) => {
+                window.location.href = '/Build-Week--Social-Media-Content-Scheduler/frontend/forms/signin.html'
+
+                     let values={
+                        "name":userName,
+                        "gender":gender,
+                        "logged":true,
+                        
+                     }
+                localStorage.setItem("values",JSON.stringify(values))
+
+            })
+            .catch((error) => {
+                document.getElementById('signup-error').innerText = error.message
+            })
+    })
+
+    sig
+</script>

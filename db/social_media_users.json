@@ -1,0 +1,62 @@
+{
+  "users": [
+    {
+      "username": "cool_youtuber_123",
+      "accounts": {
+        "YouTube": {
+          "subscribers": 157000,
+          "joined": "2018-07-15",
+          "videos": [
+            {
+              "title": "My First Vlog",
+              "views": 12000
+            },
+            {
+              "title": "React Tutorial",
+              "views": 54000
+            }
+          ]
+        },
+        "Instagram": {
+          "followers": 45000,
+          "posts": 320,
+          "bio": "Tech enthusiast & content creator"
+        },
+        "Twitter": {
+          "followers": 12000,
+          "tweets": 2800,
+          "joined": "2017-04-10"
+        }
+      }
+    },
+    {
+      "username": "daily_cook",
+      "accounts": {
+        "YouTube": {
+          "subscribers": 87000,
+          "joined": "2020-11-10",
+          "videos": [
+            {
+              "title": "5-Minute Recipes",
+              "views": 15000
+            },
+            {
+              "title": "Cooking Hacks",
+              "views": 22000
+            }
+          ]
+        },
+        "Instagram": {
+          "followers": 65000,
+          "posts": 500,
+          "bio": "Quick & healthy meals"
+        },
+        "Twitter": {
+          "followers": 7000,
+          "tweets": 1050,
+          "joined": "2021-02-18"
+        }
+      }
+    }
+  ]
+}

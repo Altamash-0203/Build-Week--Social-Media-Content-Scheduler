@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Smooch+Sans:wght@100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alumni+Sans+SC:ital,wght@0,100..900;1,100..900&display=swap');
 
 
 
@@ -61,13 +62,15 @@ body{
 
 
 #signup-btn{
-   border: 1px solid red;
-   color: red;
-   background-color: transparent;
+   border: 1px solid rgb(0, 0, 0);
+   color: rgb(202, 202, 202);
+   background-color: rgb(255, 255, 255);
    width: 80px;
    border-radius: 10px;
    text-align: center;
 }
+
+
 
 #profile-img{
     width: 30px;
@@ -166,29 +169,27 @@ body{
 
 #post-section{
     width: 90%;
-    margin-top: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: grid;
     gap: 10px;
     border-radius: 10px;
     box-shadow: 3px 3px 3px 3px rgb(202, 202, 202);
     padding: 20px;
+    margin-top: 70px;
 }
 
 #icons-side{
-   display: grid;
-   grid-row: auto;
-   justify-content: center;
+   display: flex;
+   width: 100%;
+   justify-content: space-between;
    align-items: center;
-   height: 350px;
-   background-color: rgba(223, 223, 223, 0.603);
+   background-color: rgb(255, 255, 255);
+   border: 2px solid rgb(107, 114, 114);
    border-radius: 10px;
+   padding: 15px;
 }
 
 #icons-side img{
-    width: 35px;
-    margin-top: 15px;
+    width: 25px;
     border: 1px solid rgb(100, 100, 100);
     border-radius: 50%;
     background-color:transparent;
@@ -196,96 +197,66 @@ body{
 }
 
 #icons-side img:hover{
-    width: 25px;
+    width: 27px;
 }
-#post-side{
+
+#post-mid{
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
     align-items: center;
-    border: 1px solid rgb(195, 191, 191);
-    width: 90%;
-    height: 300px;
-    border-radius: 10px    
+    border: 2px solid rgb(107, 114, 114);
+    border-radius: 7px;
+    padding: 10px;
+   box-shadow: 3px 3px 3px 3px rgb(202, 202, 202);
+
 }
 
 
-#image-added,#caption-txt-section{
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    padding: 15px;
-   
-}
-#image-added img
-{
-
-width: 220px;
-}
 #trending-hastag{
-    text-align: center;
-    color: rgb(0, 0, 0);
-    background-color: rgb(255, 255, 255);
-    margin-top: 5px;
-    border-radius: 5px;
-    display: none;
-    box-shadow: 5px 5px 5px 5px gray;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    
-    
+    height: 100%;
+    border: 1PX solid;
+    padding: 5px;
+    border-radius: 10px; 
+    width: 30%;   
 }
-
 
 #trending-hastag p{
-    border-bottom: 1px solid rgb(44, 44, 44);
-    
+    line-height: 30px;
+    border-bottom:1px solid;
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
 }
 
-#add-post{
+#caption{
     display: flex;
-    justify-content:space-between;
+    justify-content:center;
     align-items: center;
-    border-right: 1px solid black;
-
-}
-
-#caption
-{
-    margin-top: 10px;
-    display: flex;
-    justify-content:start;
-    gap: 5px;
+    gap: 10px;
+    border: 2px solid rgb(107, 114, 114);
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 3px 3px 3px 3px rgb(202, 202, 202);
+    font-family: "Alumni Sans SC", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
 }
 
 #caption-input{
-    width: 100%;
-    height: 40px;
-    background-color: rgb(255, 255, 255);
-    color: rgb(0, 0, 0);
+    width: 90%;
     border-radius: 10px;
+    background-color: gainsboro;
     text-align: center;
-    font-size: 15px;
-    font-family:'Courier New', Courier, monospace;    
+    font-size: 19px;
 }
 
 #post-btn{
-    border:none;
-    background-color: transparent;
- 
-}
-
-@media screen and (max-width: 768px) {
-    #post-side{
-        display: grid;
-        flex-direction: column;
-        align-items: center;
-        gap: 0px;
-    }
-
-    #testomonials{
-        flex-direction: column;
-        gap: 10px;
-    }
-
+    border: none;
+    background-color: black;
+    color: white;
+    border-radius: 4px;
+    width: 10%;
 }
 /* Testomonials */
 
@@ -333,7 +304,7 @@ width: 220px;
     margin-top: 50px;
     border-radius: 10px;
     box-shadow: 3px 3px 3px 3px rgb(202, 202, 202);
-    padding: 20px;
+    
 }
 
 #contact-form{
@@ -343,18 +314,11 @@ width: 220px;
     text-align: center;
     border-radius: 5px ;
     height: 400px;
-    margin-left: 20px;
 }
 
-#components-form {
-    width: 400px;
-
-
-}
 #components-form form{
     width: 100%;
     padding: 15px;
-    margin: 5%;
     border-radius: 10px ;
     box-shadow: 1px 1px 1px 1px rgb(148, 151, 151);
 
@@ -376,16 +340,25 @@ width: 220px;
     color: white;
 }
 
+iframe{
+    width: 100%;
+    height: 300px;
+}
+
 #social-accounts{
     width: 300px;
 }
 #icon-part{
     display: flex;
     padding: 20px;
-    justify-content: space-between;
+    justify-content: space-evenly;
     border-radius: 10px ;
     box-shadow: 1px 1px 1px 1px rgb(60, 59, 59);
 }
+#icon-part a{
+color: white;
+}
+
 
 @media screen and (max-width: 768px) {
     #contact-section{
@@ -421,4 +394,55 @@ width: 220px;
     line-height: 30px;
     font-size: 13px;
     padding-left: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Plans Page Css */
+
+#plan-cards{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 70px;
+    gap: 30px;
+ 
+}
+
+.plan-card{
+    border: 1px solid;
+    width: 600px;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+     font-family: "Alumni Sans SC", sans-serif;
+     font-size: x-large;
+     padding: 30px;
+        border-radius: 20px;
+    box-shadow:6px 6px 6px 6px rgb(171, 163, 163);
+}
+
+.plan-card p{
+    background-color: rgba(131, 121, 124, 0.473);
+    color: rgb(0, 0, 0);
+    border-radius: 10px;
+    text-align: center;
+    padding: 30px;
+}
+
+.plan-card:hover{
+    box-shadow: 3px 3px 3px 3px rgba(255, 0, 0, 0.638);
 }

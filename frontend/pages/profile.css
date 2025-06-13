@@ -1,0 +1,73 @@
+*{
+    margin: 0;
+    padding: 0;
+    
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    color: white;
+    width: 100%;
+
+
+}
+
+#profile-photo{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    width: 80%;
+    margin-top: 60px;
+    /* border: 1px whitesmoke solid; */
+    padding: 40px;
+    border-radius: 9px;
+    box-shadow: 2px 2px 2px 2px rgba(166, 166, 166, 0.533);
+
+}
+
+#user-photo{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+}
+
+#signout-user{
+    width: 100px;
+    height: 30px;
+    border: none;
+    border-radius: 3px;
+    font-family: sans-serif;
+    cursor: pointer;
+
+}
+
+#signout-user:hover{
+    background-color: rgb(198, 196, 196);
+}
+
+#logged-accounts{
+    margin-top: 60px;
+    border: 1px solid gray;
+    width: 90%;
+    text-align: center;
+    padding: 20px;;
+
+}
+
+
+#account-cards{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    height: 450px;
+    text-align: center;
+    gap: 17px;
+}
+
+.account-card{
+    border: 1px solid gray;
+}
