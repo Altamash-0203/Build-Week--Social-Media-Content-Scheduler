@@ -64,21 +64,26 @@
     const analytics = getAnalytics(app);
     const auth = getAuth(app)
 
+     if (localStorage.getItem("isUnknown") === null ) {
+        alert("You need to sign up first!");
+        window.location.href = "/Build-Week--Social-Media-Content-Scheduler/frontend/forms/signup.html";
+    }
 
     document.getElementById('signin-btn').addEventListener("click", () => {
         let email = document.getElementById('signin-mail').value
         let pass = document.getElementById('signin-password').value
-
+            
         signInWithEmailAndPassword(auth, email, pass)
             .then((userCredentials) => {
                 window.location.href = '/Build-Week--Social-Media-Content-Scheduler/frontend//pages/profile.html'
 
 
                 localStorage.setItem("isLogged", "true")
-                
+                localStorage.setItem("mail",email)
             })
             .catch((error) => {
                 document.getElementById('error-login').innerText = error.message
             })
     })
+
 </script>

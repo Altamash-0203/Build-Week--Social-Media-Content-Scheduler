@@ -9,8 +9,8 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: black;
-    color: white;
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
     width: 100%;
 
 
@@ -24,9 +24,9 @@ body{
     width: 80%;
     margin-top: 60px;
     /* border: 1px whitesmoke solid; */
-    padding: 40px;
+    padding: 20px;
     border-radius: 9px;
-    box-shadow: 2px 2px 2px 2px rgba(166, 166, 166, 0.533);
+    box-shadow: 4px 4px 4px 4px rgba(166, 166, 166, 0.533);
 
 }
 
@@ -52,10 +52,12 @@ body{
 
 #logged-accounts{
     margin-top: 60px;
-    border: 1px solid gray;
-    width: 90%;
+    width: 80%;
     text-align: center;
-    padding: 20px;;
+    padding: 20px;
+    border-radius: 9px;
+   box-shadow: 4px 4px 4px 4px rgba(166, 166, 166, 0.533);
+
 
 }
 
@@ -63,11 +65,41 @@ body{
 #account-cards{
     display: grid;
     grid-template-columns: repeat(2,1fr);
-    height: 450px;
     text-align: center;
     gap: 17px;
+    display: none;
 }
 
 .account-card{
-    border: 1px solid gray;
+    height: 150px;
+    padding: 30px;
+    box-shadow: 4px 4px 4px 4px rgba(166, 166, 166, 0.533);
+    border-radius: 10px;
+
+}
+
+
+.account-profile{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    
+
+}
+
+.name-img{
+    display: grid;
+    grid-template-columns:80px 1fr;
+    gap: 12px;
+    padding: 10px;
+    align-items: center;
+    width: 100%;
+    border: 1px solid rgb(0, 0, 0);
+    margin-top: 10px;
+    border-radius: 10px;
+    
+}
+
+.name-img:hover{
+    box-shadow: 2px 2px 1px 1px rgb(164, 164, 162);
 }

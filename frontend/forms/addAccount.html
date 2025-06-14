@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>User Social Media Accounts</title>
+  <link rel="stylesheet" href="account.css" />
+</head>
+<body>
+  <h2>Enter Your Social Media Account Info</h2>
+  <form id="account-form">
+    
+   <fieldset id="insta" >
+      <legend style="text-align: center; font-family: Verdana, Geneva, Tahoma, sans-serif;">Instagram</legend>
+      <input type="text" name="ig-username" id="ig-username" placeholder="Username" required>
+      <input type="url" name="ig-profile" id="ig-profile" placeholder="Enter Your Profile Url">
+      <input type="number" name="ig-followers" id="ig-followers" placeholder="Followers" required>
+      <input type="number" name="ig-following" id="ig-following" placeholder="Following" required>
+      <input type="text" name="ig-bio" id="ig-bio" placeholder="Bio" required>
+    </fieldset>
+
+    <fieldset id="x">
+      <legend style="text-align: center; font-family: Verdana, Geneva, Tahoma, sans-serif;">X (Twitter)</legend>
+      <input type="text" name="x-username" id="x-username" placeholder="Username" required>
+      <input type="url" name="x-profile" id="x-profile" placeholder="Enter Your Profile Url">
+      <input type="number" name="x-followers" id="x-followers" placeholder="Followers" required>
+      <input type="number" name="x-following" id="x-following" placeholder="Following" required>
+      <input type="text" name="x-bio" id="x-bio" placeholder="Bio" required>
+    </fieldset>
+
+    <fieldset id="youtube">
+      <legend style="text-align: center; font-family: Verdana, Geneva, Tahoma, sans-serif;">YouTube</legend>
+      <input type="text" name="yt-channel" id="yt-channel" placeholder="Channel Name" required>
+      <input type="url" name="yt-profile" id="yt-profile" placeholder="Enter Your Profile Url">
+      <input type="number" name="yt-followers" id="yt-followers" placeholder="Subscribers" required>
+      <input type="text" name="yt-bio" id="yt-bio" placeholder="Bio" required>
+    </fieldset>
+
+    <fieldset id="linkedin">
+      <legend style="text-align: center; font-family: Verdana, Geneva, Tahoma, sans-serif;">LinkedIn</legend>
+      <input type="text" name="li-name" id="li-name" placeholder="Profile Name" required>
+      <input type="url" name="li-profile" id="li-profile" placeholder="Enter Your Profile Url">
+      <input type="number" name="li-followers" id="li-followers" placeholder="Followers" required>
+      <input type="number" name="li-following" id="li-following" placeholder="Following" required>
+      <input type="text" name="li-bio" id="li-bio" placeholder="Bio" required>
+    </fieldset>
+
+    <fieldset id="facebook">
+      <legend style="text-align: center; font-family: Verdana, Geneva, Tahoma, sans-serif;">Facebook</legend>
+      <input type="text" name="fb-username" id="fb-username" placeholder="Username" required>
+      <input type="url" name="fb-profile" id="fb-profile" placeholder="Enter Your Profile Url">
+      <input type="number" name="fb-followers" id="fb-followers" placeholder="Followers" required>
+      <input type="number" name="fb-following" id="fb-following" placeholder="Following" required>
+      <input type="text" name="fb-bio" id="fb-bio" placeholder="Bio" required>
+    </fieldset>
+
+    <button id="addaccount-btn" onclick="addUserAccounts(event)" >Submit</button>
+  </form>
+
+</body>
+</html>
+
+
+<script>
+
+    
+function addUserAccounts(event) {
+    event.preventDefault();
+
+    const accounts = {
+      instagram: {
+        username: document.getElementById("ig-username").value,
+        profile: document.getElementById("ig-profile").value,
+        followers:document.getElementById("ig-followers").value,
+        following:document.getElementById("ig-following").value,
+        bio: document.getElementById("ig-bio").value
+      },
+      x: {
+        username: document.getElementById("x-username").value,
+        profile: document.getElementById("x-profile").value,
+        followers:document.getElementById("x-followers").value,
+        following:document.getElementById("x-following").value,
+        bio: document.getElementById("x-bio").value
+      },
+      youtube: {
+        username: document.getElementById("yt-channel").value,
+        profile: document.getElementById("yt-profile").value,
+        followers:document.getElementById("yt-followers").value,
+        bio: document.getElementById("yt-bio").value
+      },
+      linkedin: {
+        username: document.getElementById("li-name").value,
+        profile: document.getElementById("li-profile").value,
+        followers: document.getElementById("li-followers").value,
+        following: document.getElementById("li-following").value,
+        bio: document.getElementById("li-bio").value
+      },
+      facebook: {
+        username: document.getElementById("fb-username").value,
+        profile: document.getElementById("fb-profile").value,
+        followers:document.getElementById("fb-followers").value,
+        following:document.getElementById("fb-following").value,
+        bio: document.getElementById("fb-bio").value
+      }
+    }
+
+    postAccounts(accounts)
+}
+
+function sanitizeEmail(email) {
+    return email.replace(/\./g, "_dot_").replace(/@/g, "_at_");
+  }
+
+async function postAccounts(accounts) {
+
+let email=localStorage.getItem("mail")
+let userEmail=sanitizeEmail(email)
+
+try{
+let res=await fetch(`https://social-media-db-1bb6f-default-rtdb.firebaseio.com/users/${userEmail}.json`,{
+    method:'PUT',
+     headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(accounts)
+})
+      const result = await res.json();
+      alert("Accounts saved successfully!");
+       localStorage.setItem("account","added")
+      window.location.href="/Build-Week--Social-Media-Content-Scheduler/frontend/pages/profile.html"
+}
+catch(err){
+    alert("Failed to save data.");
+    console.log(err)
+}
+}
+</script>

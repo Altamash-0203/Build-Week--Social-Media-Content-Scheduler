@@ -5,8 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
    <link rel="stylesheet" href="profile.css">
+   <link rel="stylesheet" href="/Build-Week--Social-Media-Content-Scheduler/frontend/index.css">
 </head>
 <body>
+ <!-- Navbar -->
+  <div  id="nav">
+
+    <img src="/Build-Week--Social-Media-Content-Scheduler/frontend/images/creation_buzz_logo-1.png" width="90px" height="30px">
+
+
+    <a  href="/Build-Week--Social-Media-Content-Scheduler/frontend/index.html">Home</a>
+    <a href="/Build-Week--Social-Media-Content-Scheduler/frontend/pages/plans.html">See Plans</a>
+    <a href="/Build-Week--Social-Media-Content-Scheduler/frontend/pages/calender.html">Calender</a>
+
+  </div>
+
+
+
+
+
+
     
     <div id="profile-photo">
         <div><img src="" id="user-photo" alt=""></div>
@@ -21,12 +39,15 @@
           <h3>My Accounts</h3> 
 
           <div id="account-cards">
-            <div class="account-card">1</div>
-            <div class="account-card">2</div>
-            <div class="account-card">3</div>
-            <div class="account-card">4</div>
+              
+
           </div>
+            <div >
+    <button id="addaccounts-btn" onclick="addAccountCheck()" style="background-color: rgb(25, 77, 197);color: white;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; margin-top: 40px;border: none;padding: 5px;"> Add Accounts</button>
+  </div>
     </div>
+
+  
 </body>
 </html>
 
@@ -44,8 +65,8 @@ function checkUser() {
   if(values.gender=="male"){
        document.getElementById("user-photo").src="https://img.freepik.com/premium-photo/cyberpunk-aesthetic-portrait-concept_659788-13802.jpg?ga=GA1.1.1119130901.1744094286&semt=ais_hybrid&w=740"
   }
-  else if(values.gender=="male"){
-     document.getElementById("user-photo").src="https://img.freepik.com/premium-photo/cyberpunk-aesthetic-portrait-concept_659788-13802.jpg?ga=GA1.1.1119130901.1744094286&semt=ais_hybrid&w=740"
+  else if(values.gender=="female"){
+     document.getElementById("user-photo").src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQe4GDfRC0WG1R4DztAup4NqU-_2diQ2x6tgQ&s"
   }
   else{
     document.getElementById("user-photo").alt=`${values.name}`
@@ -66,11 +87,7 @@ function checkUser() {
     import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-analytics.js";
      import { 
     getAuth,
-    createUserWithEmailAndPassword,
-    signInWithEmailAndPassword,
-    signOut,
-    onAuthStateChanged
-
+    signOut
    } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-auth.js";
     // TODO: Add SDKs for Firebase products that you want to use
     // https://firebase.google.com/docs/web/setup#available-libraries
@@ -93,11 +110,15 @@ function checkUser() {
     const analytics = getAnalytics(app);
     const auth = getAuth(app)
 
+       // safe Email
+    function sanitizeEmail(email) {
+  return email.replace(/\./g, '_dot_').replace(/@/g, '_at_');
+}
 
     document.getElementById('signout-user').addEventListener("click", () => {
-        auth.signOut()
-            .then(() => {
-                window.location.href = '/Build-Week--Social-Media-Content-Scheduler/frontend//forms/signin.html'
+        signOut(auth)
+        .then(() => {
+                window.location.href = '/Build-Week--Social-Media-Content-Scheduler/frontend/forms/signin.html'
 
 
                 localStorage.removeItem("isLogged")
@@ -109,6 +130,59 @@ function checkUser() {
             })
     })
 
+ 
+
+
+ async function addAccountCheck(){
+    let UserEmail=localStorage.getItem("mail")
+    if(!UserEmail)return window.location.href="/Build-Week--Social-Media-Content-Scheduler/frontend/forms/signin.html"
+
+
+    let safeMail=sanitizeEmail(UserEmail)
+    let res= await fetch(`https://social-media-db-1bb6f-default-rtdb.firebaseio.com/users/${safeMail}.json`)
+     let isUser= await res.json()
+
+
+ const container = document.getElementById("account-cards");
+    container.innerHTML = ""; 
+
+
+     if (isUser) {
+   
+    container.style.display="grid"
+    
+
+    for (let platform in isUser) {
+      if (isUser[platform]) {
+        let div = document.createElement("div");
+        div.className = "account-card";
+        div.innerHTML = `
+          <b>${platform.toUpperCase()}</b><br/>
+          <div class="name-img">
+            <img class="account-profile" src="${isUser[platform].profile}" alt="${isUser[platform].name}">
+           <div>
+            <p>@${isUser[platform].username || isUser[platform].profileName || "N/A"}</p> 
+             <p>Following: ${isUser[platform].following || 0}</p>
+             
+              <p>Followers: ${isUser[platform].followers || 0}</p>
+              </div>
+              </div>
+        `;
+        container.appendChild(div);
+      }
+    }
+  }
+ 
+ else{
+    window.location.href="/Build-Week--Social-Media-Content-Scheduler/frontend/forms/addAccount.html"
+}
+}
+
+document.getElementById("addaccounts-btn").addEventListener("click",()=>{
+window.location.href="/Build-Week--Social-Media-Content-Scheduler/frontend/forms/addAccount.html"
+})
+
+addAccountCheck()
 </script>
 
 

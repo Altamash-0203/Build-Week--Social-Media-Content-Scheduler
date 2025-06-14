@@ -79,7 +79,9 @@
                         "logged":true,
                         
                      }
+                     localStorage.setItem("mail",email)
                 localStorage.setItem("values",JSON.stringify(values))
+                localStorage.setItem("isUnknown","NO")
 
             })
             .catch((error) => {
@@ -87,5 +89,4 @@
             })
     })
 
-    sig
 </script>
