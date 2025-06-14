@@ -1,0 +1,448 @@
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Smooch+Sans:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alumni+Sans+SC:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+
+
+
+*{
+    margin: 0;
+    padding: 0;
+    /* background-color: #2c2c2c; */
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+/* Navbar */
+
+#nav{
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    align-content: center;
+    border: 1px solid rgb(255, 255, 255);
+    padding: 10px;
+    background-color: rgb(255, 255, 255);
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 100;
+    font-style: normal;
+    border-radius: 20px;
+    box-shadow:3px 3px 3px 3px rgb(221, 221, 221);
+    width: 90%;
+    margin-top: 30px;
+    height: 50px;
+    padding: 10px;
+    
+}
+
+
+#nav a{
+    text-decoration: none;
+    border: none;
+    font-family: "Smooch Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  color: black
+}
+
+#nav a:hover{
+    text-decoration: underline;
+    font-size: 15px
+}
+
+
+#signup-btn{
+   border: 1px solid rgb(0, 0, 0);
+   color: rgb(202, 202, 202);
+   background-color: rgb(255, 255, 255);
+   width: 80px;
+   border-radius: 10px;
+   text-align: center;
+}
+
+
+
+#profile-img{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: none;
+}
+
+
+
+/* disable button  */
+@media screen and (max-width: 600px) {
+  #signup-btn{
+    display: none;
+  }
+
+
+
+}
+
+
+
+/* main content */
+
+#content{
+    width: 90%;
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    margin-top: 50px;
+     border: none;
+     border-radius: 20px;
+     gap: 30px;
+     box-shadow: 3px 3px 3px 3px rgb(164, 164, 164);
+}
+
+#text-content{
+   width: 40%;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  opacity: 0;
+  font-size: 14px;
+  transform: translateY(50px);
+  animation: fadeInUp 1s ease forwards;
+}
+
+@keyframes fadeInUp {
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#img-content{
+    width: 40%;
+    padding: 10px;    
+}
+
+#img-content img{
+     width: 200;
+    height: 300px;
+    border-radius: 20px;
+}
+
+
+.carousel-inner{
+    border-radius: 20px;
+}
+
+/* diplay constnt in block */
+@media screen and (max-width: 600px) {
+  #content{
+    display: grid;
+    text-align: center;
+    justify-content:center ;
+    align-items: center;
+
+  }
+  #text-content{
+    width: 100%;
+    text-align: center;
+  }
+
+  #img-content{
+    width: 100%;
+  }
+
+
+}
+
+
+/* account section  */
+
+#post-section{
+    width: 90%;
+    display: grid;
+    gap: 10px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 3px 3px rgb(202, 202, 202);
+    padding: 20px;
+    margin-top: 70px;
+}
+
+#icons-side{
+   display: flex;
+   width: 100%;
+   justify-content: space-between;
+   align-items: center;
+   background-color: rgb(255, 255, 255);
+   border: 2px solid rgb(107, 114, 114);
+   border-radius: 10px;
+   padding: 15px;
+}
+
+#icons-side img{
+    width: 25px;
+    border: 1px solid rgb(100, 100, 100);
+    border-radius: 50%;
+    background-color:transparent;
+    cursor: pointer;
+}
+
+#icons-side img:hover{
+    width: 27px;
+}
+
+#post-mid{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border: 2px solid rgb(107, 114, 114);
+    border-radius: 7px;
+    padding: 10px;
+   box-shadow: 3px 3px 3px 3px rgb(202, 202, 202);
+
+}
+
+
+#trending-hastag{
+    height: 100%;
+    border: 1PX solid;
+    padding: 5px;
+    border-radius: 10px; 
+    width: 30%;   
+}
+
+#trending-hastag p{
+    line-height: 30px;
+    border-bottom:1px solid;
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+}
+
+#caption{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    gap: 10px;
+    border: 2px solid rgb(107, 114, 114);
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 3px 3px 3px 3px rgb(202, 202, 202);
+    font-family: "Alumni Sans SC", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+}
+
+#caption-input{
+    width: 90%;
+    border-radius: 10px;
+    background-color: gainsboro;
+    text-align: center;
+    font-size: 19px;
+}
+
+#post-btn{
+    border: none;
+    background-color: black;
+    color: white;
+    border-radius: 4px;
+    width: 10%;
+}
+/* Testomonials */
+
+#testomonials{
+    width: 90%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 3px 3px 3px 3px rgb(202, 202, 202);
+    padding: 20px;
+}
+
+
+
+.user-feed{
+    width: 30%;
+    border: 1px solid gray;
+    height: 100%;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+
+}
+
+.user-feed:hover{
+  
+    box-shadow: 2px 2px 2px 2px rgb(189, 189, 189);
+}
+
+.user-feed img{
+    border-radius: 50%;
+}
+
+
+
+/* contact form */
+
+#contact-section{
+    width: 90%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 50px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 3px 3px rgb(202, 202, 202);
+    
+}
+
+#contact-form{
+    width: 40%;
+    display: grid;
+    justify-content:center ;
+    text-align: center;
+    border-radius: 5px ;
+    height: 400px;
+}
+
+#components-form form{
+    width: 100%;
+    padding: 15px;
+    border-radius: 10px ;
+    box-shadow: 1px 1px 1px 1px rgb(148, 151, 151);
+
+}
+.con-form{
+    width: 300px;
+    margin-top: 20px;
+    border: none;
+    border-bottom: 1px solid blue;
+    background-color:transparent;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+#submit-btn{
+    width: 100px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(0, 0, 0);
+    color: white;
+}
+
+iframe{
+    width: 100%;
+    height: 300px;
+}
+
+#social-accounts{
+    width: 300px;
+}
+#icon-part{
+    display: flex;
+    padding: 20px;
+    justify-content: space-evenly;
+    border-radius: 10px ;
+    box-shadow: 1px 1px 1px 1px rgb(60, 59, 59);
+}
+#icon-part a{
+color: white;
+}
+
+
+@media screen and (max-width: 768px) {
+    #contact-section{
+        flex-direction: column;
+        width: 100%;
+    }
+}
+
+
+/* Footer */
+#footer{
+    height: 200px;
+    margin-top: 50px;
+    background-color: rgb(50, 50, 50);
+    width: 100%;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+#pages-list{
+    list-style: none;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 12px;
+    padding: 10px;
+    line-height:30px;
+    text-decoration: none;
+    color: white;
+}
+
+#address{
+    line-height: 30px;
+    font-size: 13px;
+    padding-left: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Plans Page Css */
+
+#plan-cards{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 70px;
+    gap: 30px;
+ 
+}
+
+.plan-card{
+    border: 1px solid;
+    width: 600px;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+     font-family: "Alumni Sans SC", sans-serif;
+     font-size: x-large;
+     padding: 30px;
+        border-radius: 20px;
+    box-shadow:6px 6px 6px 6px rgb(171, 163, 163);
+}
+
+.plan-card p{
+    background-color: rgba(131, 121, 124, 0.473);
+    color: rgb(0, 0, 0);
+    border-radius: 10px;
+    text-align: center;
+    padding: 30px;
+}
+
+.plan-card:hover{
+    box-shadow: 3px 3px 3px 3px rgba(255, 0, 0, 0.638);
+}
