@@ -213,6 +213,9 @@ body{
 
 
 
+
+
+
 #post-mid{
     display: flex;
     flex-direction: column;
@@ -366,19 +369,13 @@ body{
 }
 
 #submit-btn{
-    width: 25%;
+    width: 100px;
     border: none;
     border-radius: 5px;
     background-color: rgb(0, 0, 0);
     color: white;
 
 }
-/* 
-@media(max-width:350px) {
-    #contact-section{
-        width: 50%;
-    }
-} */
 
 iframe{
     width: 100%;
