@@ -5,14 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login-Creation Buzz</title>
-    <link rel="shortcut icon" href="/Build-Week--Social-Media-Content-Scheduler/frontend/images/creation_buzz_logo-1.png"
+    <link rel="shortcut icon" href="frontend/images/creation_buzz_logo-1.png"
         type="image/x-icon">
     <link rel="stylesheet" href="form.css">
 </head>
 
 <body>
     <div id="signin-form">
-        <div><img src="/Build-Week--Social-Media-Content-Scheduler/frontend/images/creation_buzz_logo-1.png"
+        <div><img src="frontend/images/creation_buzz_logo-1.png"
                 height="40px"></div>
         <input type="email" name="" id="signin-mail" placeholder="Enter Your Mail Address">
         <input type="password" id="signin-password" placeholder="Enter Password">
@@ -71,7 +71,7 @@
             
         signInWithEmailAndPassword(auth, email, pass)
             .then((userCredentials) => {
-                window.location.href = '/Build-Week--Social-Media-Content-Scheduler/frontend//pages/profile.html'
+                window.location.href = 'frontend//pages/profile.html'
 
 
                 localStorage.setItem("isLogged", "true")

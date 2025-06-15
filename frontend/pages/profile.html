@@ -4,20 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>profile-The Creation Buzz</title>
-   <link rel="stylesheet" href="/Build-Week--Social-Media-Content-Scheduler/frontend/pages/profile.css">
-   <link rel="stylesheet" href="/Build-Week--Social-Media-Content-Scheduler/index.css">
-   <link rel="shortcut icon" href="/Build-Week--Social-Media-Content-Scheduler/frontend/images/profileFav.png" type="image/x-icon">
+   <link rel="stylesheet" href="frontend/pages/profile.css">
+   <link rel="stylesheet" href="index.css">
+   <link rel="shortcut icon" href="frontend/images/profileFav.png" type="image/x-icon">
 </head>
 <body>
  <!-- Navbar -->
   <div  id="nav">
 
-    <img src="/Build-Week--Social-Media-Content-Scheduler/frontend/images/creation_buzz_logo-1.png" width="90px" height="30px">
+    <img src="frontend/images/creation_buzz_logo-1.png" width="90px" height="30px">
 
 
-    <a  href="/Build-Week--Social-Media-Content-Scheduler/index.html">Home</a>
-    <a href="/Build-Week--Social-Media-Content-Scheduler/frontend/pages/plans.html">See Plans</a>
-    <a href="/Build-Week--Social-Media-Content-Scheduler/frontend/pages/calender.html">Calender</a>
+    <a  href="index.html">Home</a>
+    <a href="frontend/pages/plans.html">See Plans</a>
+    <a href="frontend/pages/calender.html">Calender</a>
 
   </div>
 
@@ -58,7 +58,7 @@ function checkUser() {
   const status = JSON.parse(localStorage.getItem("isLogged"));
 
   if (!status) {
-    return (window.location.href = "/Build-Week--Social-Media-Content-Scheduler/frontend/forms/signin.html");
+    return (window.location.href = "frontend/forms/signin.html");
   }
 
   let  values= JSON.parse(localStorage.getItem('values'))
@@ -119,7 +119,7 @@ function checkUser() {
     document.getElementById('signout-user').addEventListener("click", () => {
         signOut(auth)
         .then(() => {
-                window.location.href = '/Build-Week--Social-Media-Content-Scheduler/frontend/forms/signin.html'
+                window.location.href = 'frontend/forms/signin.html'
 
 
                 localStorage.removeItem("isLogged")
@@ -136,7 +136,7 @@ function checkUser() {
 
  async function addAccountCheck(){
     let UserEmail=localStorage.getItem("mail")
-    if(!UserEmail)return window.location.href="/Build-Week--Social-Media-Content-Scheduler/frontend/forms/signin.html"
+    if(!UserEmail)return window.location.href="frontend/forms/signin.html"
 
 
     let safeMail=sanitizeEmail(UserEmail)
@@ -175,12 +175,12 @@ function checkUser() {
   }
  
  else{
-    window.location.href="/Build-Week--Social-Media-Content-Scheduler/frontend/forms/addAccount.html"
+    window.location.href="frontend/forms/addAccount.html"
 }
 }
 
 document.getElementById("addaccounts-btn").addEventListener("click",()=>{
-window.location.href="/Build-Week--Social-Media-Content-Scheduler/frontend/forms/addAccount.html"
+window.location.href="frontend/forms/addAccount.html"
 })
 
 addAccountCheck()
