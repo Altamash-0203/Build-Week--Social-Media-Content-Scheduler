@@ -5,14 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Signup-Creation Buzz</title>
-    <link rel="shortcut icon" href="frontend/images/android-chrome-192x192.png"
+    <link rel="shortcut icon" href="/frontend/images/android-chrome-192x192.png"
         type="image/x-icon">
-    <link rel="stylesheet" href="form.css">
+    <link rel="stylesheet" href="/frontend/forms/form.css">
 </head>
 
 <body>
     <div id="signup-form">
-        <div><img src="frontend/images/creation_buzz_logo-1.png"
+        <div><img src="/frontend/images/creation_buzz_logo-1.png"
                 height="40px"></div>
         <input type="text" name="" id="signup-name" placeholder="Enter Your Username">
         <input type="email" name="" id="signup-mail" placeholder="Enter Your Mail Address">
@@ -71,7 +71,7 @@
 
         createUserWithEmailAndPassword(auth, email, pass)
             .then((userCredentials) => {
-                window.location.href = 'frontend/forms/signin.html'
+                window.location.href = '/frontend/forms/signin.html'
 
                      let values={
                         "name":userName,
