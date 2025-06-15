@@ -179,7 +179,8 @@ body{
 
 #icons-side{
    display: flex;
-   width: 100%;
+   flex-wrap: wrap;
+   width: 90;
    justify-content: space-between;
    align-items: center;
    text-align: center;
@@ -187,25 +188,34 @@ body{
    border: 2px solid rgb(107, 114, 114);
    border-radius: 10px;
    padding: 15px;
+   gap: 10px;
 }
 
 #ig-check,#x-check,#yt-check,#li-check,#fb-check{
-    width: 15px;
-    height: 15px;
-    text-align: center;
+    width: 10px;
+    height: 10px;
 }
 
 #icons-side img{
-    width: 20px;
+    width: 15px;
     background-color:transparent;
 }
 
-#icons-side img:hover{
-    width: 27px;
+@media (max-width: 450px){
+    
+#icons-side img{
+    display: none;
 }
+#icons-side {
+        justify-content: space-evenly;
+    }
+}
+
+
 
 #post-mid{
     display: flex;
+    flex-direction: column;
     justify-content: space-around;
     align-items: center;
     border: 2px solid rgb(107, 114, 114);
@@ -222,6 +232,7 @@ body{
     padding: 5px;
     border-radius: 10px; 
     width: 30%;   
+    display: none;
 }
 
 #trending-hastag p{
@@ -234,6 +245,7 @@ body{
 
 #caption{
     display: flex;
+    flex-direction: column;
     justify-content:center;
     align-items: center;
     gap: 10px;
@@ -248,10 +260,11 @@ body{
 }
 
 #caption-input{
-    width: 90%;
+    width: 80%;
     border-radius: 10px;
     background-color: gainsboro;
     text-align: center;
+    padding: 10px;
     font-size: 19px;
 }
 
@@ -260,7 +273,8 @@ body{
     background-color: black;
     color: white;
     border-radius: 4px;
-    width: 10%;
+    width: 50%;
+    cursor: pointer;
 }
 /* Testomonials */
 
@@ -297,7 +311,22 @@ body{
 }
 
 
+@media (max-width:690px) {
+    
+    #testomonials{
+    flex-direction: column;
+    }
 
+    .user-feed{
+    width: 90%;
+    border: 1px solid gray;
+    height: 100%;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+
+}
+}
 /* contact form */
 
 #contact-section{
@@ -312,7 +341,7 @@ body{
 }
 
 #contact-form{
-    width: 40%;
+    width: 100%;
     display: grid;
     justify-content:center ;
     text-align: center;
@@ -328,7 +357,7 @@ body{
 
 }
 .con-form{
-    width: 300px;
+    width: 100%;
     margin-top: 20px;
     border: none;
     border-bottom: 1px solid blue;
@@ -337,12 +366,19 @@ body{
 }
 
 #submit-btn{
-    width: 100px;
+    width: 25%;
     border: none;
     border-radius: 5px;
     background-color: rgb(0, 0, 0);
     color: white;
+
 }
+/* 
+@media(max-width:350px) {
+    #contact-section{
+        width: 50%;
+    }
+} */
 
 iframe{
     width: 100%;

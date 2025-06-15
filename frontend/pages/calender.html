@@ -26,8 +26,98 @@
 
   </div>
 
+  <div id="date-time">
+
+    <input type="text" name="" id="post-title" placeholder="Post-title">
+    <input type="date" id="post-date">
+    <input type="time" id="post-time">
+    <button id="schedule-btn">Schedule Post</button>
+  </div>
+
+    <h4 style="text-align: center;margin-top: 20px; text-decoration: underline;font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">Sheduled post</h4>
+  <div id="list">
+
+  </div>
 
  
 </body>
 </html>
 
+
+<script>
+      document.getElementById("schedule-btn").addEventListener("click",()=>{
+        let post_title=document.getElementById("post-title").value
+        let post_date=document.getElementById("post-date").value
+        let post_time=document.getElementById("post-time").value
+         
+        let data={
+          "title":post_title,
+          "time":post_time,
+          "date":post_date,
+          "status":false
+        }
+
+        if(post_date && post_time){
+          let posting = new Date(post_date + "T" + post_time);
+          let now=new Date()
+          let delay=posting-now;
+            // console.log(delay)
+
+
+          if(delay>0){
+
+          let post=JSON.parse(localStorage.getItem("posts"))||[]
+          post.push(data)
+          localStorage.setItem("posts",JSON.stringify(post))
+
+            setTimeout(() => {
+                 confirm("Your Sheduled Post is Posted")
+                 updatepost(posting)
+            }, delay);
+          
+          confirm("Your Post On sheduled On"+ posting)
+          fetchPost()
+        }
+        else{
+          alert("shedule time is already Passed")
+        }
+      }
+        else{
+          alert("select date and Time")
+        }
+      })
+
+
+      function fetchPost(){
+        let list=document.getElementById("list")
+        list.innerHTML=""
+        let posts=JSON.parse(localStorage.getItem("posts"))
+        posts.forEach(post => {
+          let div=document.createElement('div')
+          div.className='post-card'
+
+          div.innerHTML=`
+            <b>${post.title}</b>
+            <p><b>Post-date:</b>${post.date}</p>
+            <p><b>Post-time:</b>${post.time}</p>
+            <p><b>Status:</b>${post.status?"Posted":"Shedulued"}</p>
+          `
+          list.appendChild(div)
+        });
+      }
+
+function updatepost(posting){
+  let posts=JSON.parse(localStorage.getItem("posts"))
+
+  posts.forEach(post=>{
+    if(new Date(post.date+ "T" +post.time).getTime()==posting.getTime()){
+      post.status=true
+    }
+  })
+  localStorage.setItem("posts",JSON.stringify(posts))
+  fetchPost()
+}
+
+
+fetchPost()
+</script>
