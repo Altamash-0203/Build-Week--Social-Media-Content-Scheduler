@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>User Social Media Accounts</title>
-  <link rel="stylesheet" href="/Build-Week--Social-Media-Content-Scheduler/frontend/forms/account.css" />
+  <link rel="stylesheet" href="/frontend/forms/account.css" />
 </head>
 <body>
   <h2>Enter Your Social Media Account Info</h2>
@@ -127,7 +127,7 @@ let res=await fetch(`https://social-media-db-1bb6f-default-rtdb.firebaseio.com/u
       const result = await res.json();
       alert("Accounts saved successfully!");
        localStorage.setItem("account","added")
-      window.location.href="/Build-Week--Social-Media-Content-Scheduler/frontend/pages/profile.html"
+      window.location.href="/frontend/pages/profile.html"
 }
 catch(err){
     alert("Failed to save data.");
