@@ -64,10 +64,6 @@
     const analytics = getAnalytics(app);
     const auth = getAuth(app)
 
-     if (localStorage.getItem("isUnknown") === null ) {
-        alert("You need to sign up first!");
-        window.location.href = "/Build-Week--Social-Media-Content-Scheduler/frontend/forms/signup.html";
-    }
 
     document.getElementById('signin-btn').addEventListener("click", () => {
         let email = document.getElementById('signin-mail').value

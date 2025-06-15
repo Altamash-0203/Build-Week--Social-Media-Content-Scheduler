@@ -182,18 +182,22 @@ body{
    width: 100%;
    justify-content: space-between;
    align-items: center;
+   text-align: center;
    background-color: rgb(255, 255, 255);
    border: 2px solid rgb(107, 114, 114);
    border-radius: 10px;
    padding: 15px;
 }
 
+#ig-check,#x-check,#yt-check,#li-check,#fb-check{
+    width: 15px;
+    height: 15px;
+    text-align: center;
+}
+
 #icons-side img{
-    width: 25px;
-    border: 1px solid rgb(100, 100, 100);
-    border-radius: 50%;
+    width: 20px;
     background-color:transparent;
-    cursor: pointer;
 }
 
 #icons-side img:hover{
@@ -418,12 +422,13 @@ color: white;
     align-items: center;
     margin-top: 70px;
     gap: 30px;
+    width: 90%;
  
 }
 
 .plan-card{
-    border: 1px solid;
-    width: 600px;
+    border: none;
+    width: 80%;
     display: grid;
     justify-content: center;
     align-items: center;
